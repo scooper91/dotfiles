@@ -4,10 +4,15 @@ if has("gui_running")
 	set guioptions-=l " Hide the left hand toolbar
 	set guioptions-=r " Hide the right hand toolbar
 	set guioptions-=b " Hide the bottom hand toolbar
-else
-	set shell=/usr/bin/bash
+"else
+"	set shell=/usr/bin/bash
 endif
 
+if $COLORTERM == 'gnome-terminal'
+	set t_Co=256
+endif
+
+set hidden
 set number "view line numbers
 set tabstop=4 "spaces per tab
 set shiftwidth=4
@@ -16,12 +21,14 @@ set nocompatible
 set cursorline
 set backspace=indent,eol,start "Allow backspacing over these chars
 set noswapfile
-set mouse=a "allow mouse"
+set mouse=a "allow mouse
 syntax on
 
 "Case-insensitive search, unless mixed case is used
 set ignorecase
 set smartcase
+set incsearch
+set hlsearch
 
 "Start gVim in full screen
 au GUIEnter * simalt ~x
@@ -34,14 +41,26 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
+Plugin 'bronson/vim-visual-star-search'
 Plugin 'rking/ag.vim'
 let g:ag_working_path_mode="r"
 
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
 \ 'dir': '\v[\/](node_modules|\.git)$',
 \ }
+
+"Use ag or git for autocompletion
+let g:ctrlp_use_caching = 0
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+        \ }
+endif
 
 Plugin 'mustache/vim-mustache-handlebars'
 au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
@@ -61,12 +80,12 @@ let g:solarized_visibility = 'low'
 Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-commentary' " gc to comment line
 Plugin 'tpope/vim-fugitive'
-Plugin 'Shougo/neocomplete'
-let g:neocomplete#enable_at_startup = 1
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
 noremap <F2> :NERDTreeToggle<CR>
+nmap <SPACE> <SPACE>:noh<CR>
 
 colorscheme solarized
 
