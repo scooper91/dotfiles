@@ -1,0 +1,13 @@
+alias g=git
+alias gs='git status'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias ga='git add'
+alias gaa='git add --all'
+alias gch='git checkout'
+alias gr='git reset'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gps='git push'
+alias gpl='git pull'
+alias gplr='git pull --rebase'
