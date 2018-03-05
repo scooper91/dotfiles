@@ -33,15 +33,20 @@ set hlsearch
 "Start gVim in full screen
 au GUIEnter * simalt ~x
 
+map <Leader>f :NERDTreeFind<CR>
+map <Leader>tc :tabclose<CR>
+
 " Plugins
 """"""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bronson/vim-visual-star-search'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rking/ag.vim'
 let g:ag_working_path_mode="r"
 
@@ -71,6 +76,7 @@ let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+let g:syntastic_python_checkers=['flake8']
 
 Plugin 'altercation/vim-colors-solarized'
 set background=dark
