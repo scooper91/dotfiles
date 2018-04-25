@@ -4,8 +4,8 @@ if has("gui_running")
 	set guioptions-=l " Hide the left hand toolbar
 	set guioptions-=r " Hide the right hand toolbar
 	set guioptions-=b " Hide the bottom hand toolbar
-"else
-"	set shell=/usr/bin/bash
+	"else
+	"	set shell=/usr/bin/bash
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -52,19 +52,19 @@ let g:ag_working_path_mode="r"
 
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
-\ 'dir': '\v[\/](node_modules|\.git)$',
-\ }
+			\ 'dir': '\v[\/](node_modules|\.git)$',
+			\ }
 
 "Use ag or git for autocompletion
 let g:ctrlp_use_caching = 0
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	set grepprg=ag\ --nogroup\ --nocolor
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-        \ }
+	let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+	let g:ctrlp_prompt_mappings = {
+				\ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+				\ }
 endif
 
 Plugin 'mustache/vim-mustache-handlebars'
@@ -87,8 +87,47 @@ Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-commentary' " gc to comment line
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'solarized'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#close_symbol = '×'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#whitespace#checks = [ 'trailing' ]
+let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 
 call vundle#end()
+
+function! BD()
+	let restoreStateCmds = []
+	"Don't accidentally delete certain buffers
+	if @% == 'NERD_tree_1'
+		NERDTreeClose
+		:call add(restoreStateCmds, 'NERDTreeFocus')
+	endif
+	if &buftype == 'quickfix'
+		ccl
+		:call add(restoreStateCmds, 'copen')
+	endif
+
+	"Don't lose splits
+	b# "Go to last used buffer
+	bd # "Close previous buffer (buffer before b#)
+	try
+		buffer
+	catch
+		"Last used buffer we've ended up in has previously been bd'd (hidden)
+		"bd again to hide it and go to a visible buffer
+		bd
+	endtry
+
+	for cmd in restoreStateCmds
+		execute(cmd)
+	endfor
+endfunction
 
 noremap <F2> :NERDTreeToggle<CR>
 nmap <SPACE> <SPACE>:noh<CR>
