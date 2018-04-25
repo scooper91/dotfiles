@@ -22,6 +22,7 @@ set cursorline
 set backspace=indent,eol,start "Allow backspacing over these chars
 set noswapfile
 set mouse=a "allow mouse
+set scrolloff=2
 set timeoutlen=1000 ttimeoutlen=0 "No esc delay
 syntax on
 
