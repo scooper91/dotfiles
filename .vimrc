@@ -4,8 +4,6 @@ if has("gui_running")
 	set guioptions-=l " Hide the left hand toolbar
 	set guioptions-=r " Hide the right hand toolbar
 	set guioptions-=b " Hide the bottom hand toolbar
-	"else
-	"	set shell=/usr/bin/bash
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -142,9 +140,6 @@ hi SpecialKey ctermfg=red guifg=red
 set list
 set exrc
 set secure
-
-" Closes vim if NERDTree is the only thing left open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 filetype off
 filetype plugin indent on
