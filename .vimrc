@@ -4,6 +4,7 @@ if has("gui_running")
 	set guioptions-=l " Hide the left hand toolbar
 	set guioptions-=r " Hide the right hand toolbar
 	set guioptions-=b " Hide the bottom hand toolbar
+	set guifont=Consolas:h11
 endif
 
 if $COLORTERM == 'gnome-terminal'
