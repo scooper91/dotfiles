@@ -53,9 +53,10 @@ Plugin 'rking/ag.vim'
 let g:ag_working_path_mode="r"
 
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_root_markers = ['.ctrlp_root']
 let g:ctrlp_custom_ignore = {
-			\ 'dir': '\v[\/](node_modules|\.git)$',
-			\ }
+\ 'dir': '\v[\/](node_modules|\.git)$',
+\ }
 
 "Use ag or git for autocompletion
 let g:ctrlp_use_caching = 0
