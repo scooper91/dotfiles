@@ -48,8 +48,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'rking/ag.vim'
-let g:ag_working_path_mode="r"
+Plugin 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep --smart-case'
 
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_root_markers = ['.ctrlp_root']
