@@ -127,6 +127,7 @@ endfunction
 
 noremap <F2> :NERDTreeToggle<CR>
 nmap <SPACE> <SPACE>:noh<CR>
+map <Leader>bd :call BD()<CR>
 
 colorscheme solarized
 
