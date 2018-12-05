@@ -2,6 +2,7 @@ alias g=git
 alias gs='git status'
 alias gc='git commit'
 alias gca='git commit --amend'
+alias gcaq='git commit --amend --no-edit'
 alias ga='git add'
 alias gaa='git add --all'
 alias gch='git checkout'
