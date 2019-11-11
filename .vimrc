@@ -67,7 +67,9 @@ let g:ctrlp_prompt_mappings = {
 
 Plugin 'mustache/vim-mustache-handlebars'
 au BufNewFile,BufRead *.handlebars setlocal filetype=mustache
+au BufNewFile,BufRead *.ts setlocal filetype=js
 
+Plugin 'leafgarland/typescript-vim'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
