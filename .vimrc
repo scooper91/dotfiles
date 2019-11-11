@@ -44,8 +44,8 @@ map <Leader>tc :tabclose<CR>
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bronson/vim-visual-star-search'
