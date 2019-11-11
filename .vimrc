@@ -78,6 +78,8 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 let g:syntastic_python_checkers=['flake8']
 
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+
 Plugin 'altercation/vim-colors-solarized'
 set background=dark
 set t_Co=256
