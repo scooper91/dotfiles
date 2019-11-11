@@ -23,6 +23,8 @@ set noswapfile
 set mouse=a "allow mouse
 set scrolloff=2
 set timeoutlen=1000 ttimeoutlen=0 "No esc delay
+set noendofline
+set nofixendofline
 syntax on
 
 "Case-insensitive search, unless mixed case is used
