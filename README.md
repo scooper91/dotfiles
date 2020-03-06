@@ -2,6 +2,10 @@
 
 ## Setup
 
+### Colours
+
+ - Set terminal colour scheme to "Solarized Dark" and palette to "Solarized"
+
 ### Bash
 
  - Symlink `.bash_aliases` to `~/.bash_aliases` (sourced in `.zshrc`)
