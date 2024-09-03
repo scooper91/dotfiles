@@ -13,8 +13,9 @@ endif
 
 set hidden
 set number "view line numbers
-set tabstop=4 "spaces per tab
-set shiftwidth=4
+set tabstop=2 "spaces per tab
+set shiftwidth=2
+set expandtab
 set complete+=k
 set nocompatible
 set cursorline
@@ -38,6 +39,8 @@ au GUIEnter * simalt ~x
 
 map <Leader>f :NERDTreeFind<CR>
 map <Leader>tc :tabclose<CR>
+
+au FileType gitcommit hi gitcommitOverflow ctermfg=88
 
 " Plugins
 """"""""""""
@@ -76,9 +79,17 @@ let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+
 let g:syntastic_python_checkers=['flake8']
 
-let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+let g:syntastic_ruby_checkers=['rubocop']
+
+let g:syntastic_go_checkers=['golint']
+let g:syntastic_go_golint_exec = '~/go/bin/golint'
+
+Plugin 'dense-analysis/ale'
+Plugin 'ervandew/supertab'
 
 Plugin 'altercation/vim-colors-solarized'
 set background=dark
@@ -101,6 +112,8 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
+let g:airline#extensions#wordcount#enabled = 1
+let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|text|asciidoc|tex|mail'
 
 call vundle#end()
 
