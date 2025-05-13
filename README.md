@@ -25,6 +25,7 @@
  - Symlink `.zshrc` to `~/.zshrc`
  - Install & use [Powerline Fonts](https://github.com/powerline/fonts) to get the icons in the Spaceship Zsh theme
  - Install [Spaceship](https://denysdovhan.com/spaceship-prompt/#installing)
+ - Ensure `spaceship.zsh-theme` is in the custom themes directory in `~/.oh-my-zsh`
  - Run `source ~/.zshrc`
 
 ### TMUX
