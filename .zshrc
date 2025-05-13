@@ -75,6 +75,11 @@ stty -ixon
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=2000
+setopt INC_APPEND_HISTORY_TIME
+
 source ~/.bash_aliases
 
  #Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -85,3 +90,8 @@ source ~/.bash_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+source /home/sophie/.config/broot/launcher/bash/br

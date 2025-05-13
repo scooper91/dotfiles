@@ -5,10 +5,8 @@ if has("gui_running")
 	set guioptions-=r " Hide the right hand toolbar
 	set guioptions-=b " Hide the bottom hand toolbar
 	set guifont=Consolas:h11
-endif
-
-if $COLORTERM == 'gnome-terminal'
-	set t_Co=256
+  "Start gVim in full screen
+  au GUIEnter * simalt ~x
 endif
 
 set hidden
@@ -26,16 +24,12 @@ set scrolloff=2
 set timeoutlen=1000 ttimeoutlen=0 "No esc delay
 set noendofline
 set nofixendofline
-syntax on
 
 "Case-insensitive search, unless mixed case is used
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-
-"Start gVim in full screen
-au GUIEnter * simalt ~x
 
 map <Leader>f :NERDTreeFind<CR>
 map <Leader>tc :tabclose<CR>
@@ -48,6 +42,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
@@ -78,6 +73,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
+
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
 
@@ -91,11 +87,6 @@ let g:syntastic_go_golint_exec = '~/go/bin/golint'
 Plugin 'dense-analysis/ale'
 Plugin 'ervandew/supertab'
 
-Plugin 'altercation/vim-colors-solarized'
-set background=dark
-set t_Co=256
-let g:solarized_visibility = 'low'
-
 Plugin 'groenewege/vim-less'
 Plugin 'tpope/vim-commentary' " gc to comment line
 Plugin 'tpope/vim-fugitive'
@@ -105,7 +96,7 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'Base2Tone_SpaceDark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#close_symbol = '×'
 let g:airline#extensions#syntastic#enabled = 1
@@ -114,6 +105,8 @@ let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 let g:airline#extensions#whitespace#trailing_format = '%s:trailing'
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|text|asciidoc|tex|mail'
+
+Plugin 'atelierbram/Base2Tone-vim'
 
 call vundle#end()
 
@@ -149,8 +142,6 @@ noremap <F2> :NERDTreeToggle<CR>
 nmap <SPACE> <SPACE>:noh<CR>
 map <Leader>bd :call BD()<CR>
 
-colorscheme solarized
-
 set listchars=tab:\ \ ,trail:_
 hi SpecialKey ctermfg=red guifg=red
 set list
@@ -159,3 +150,13 @@ set secure
 
 filetype off
 filetype plugin indent on
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+set background=dark
+set t_Co=256
+syntax enable
+
+colorscheme Base2Tone_SpaceDark
