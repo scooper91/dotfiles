@@ -4,7 +4,7 @@
 
 ### Colours
 
- - Set terminal colour scheme to "Solarized Dark" and palette to "Solarized"
+- Use [Gogh](https://gogh-co.github.io/Gogh) to install the `Base2Tone_Space` theme.
 
 ### Bash
 
@@ -15,7 +15,6 @@
  - Install vim (gVim, macVim, etc)
  - Symlink the correct `.vimrc` to `~/.vimrc`
  - Install [Vundle](https://github.com/VundleVim/Vundle.vim)
- - Install [Vim Colours Solarized](https://github.com/altercation/vim-colors-solarized)
  - From Vim, run `:PluginInstall` to install plugins
  - Install [Ag](https://github.com/ggreer/the_silver_searcher) to be able to use the Vim-Ag plugin
 
