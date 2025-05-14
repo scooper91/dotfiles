@@ -12,7 +12,7 @@
 
 ### Vim
 
- - Install vim (gVim, macVim, etc)
+ - Install vim (gVim, macVim, etc). `vim-gtk3` may be required in order to get the system clipboard working (`vim --version` should have `+clipboard` if it is working).
  - Symlink the correct `.vimrc` to `~/.vimrc`
  - Install [Vundle](https://github.com/VundleVim/Vundle.vim)
  - From Vim, run `:PluginInstall` to install plugins
