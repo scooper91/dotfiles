@@ -20,3 +20,5 @@ function aws_login {
   export AWS_REGION=eu-central-1
   echo Exported credentials as environment variables.
 }
+
+alias uptmux='upterm host --force-command '\''tmux attach -t pair-programming'\'' -- tmux new-session -As pair-programming'
