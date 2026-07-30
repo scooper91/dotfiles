@@ -45,6 +45,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jonsmithers/vim-html-template-literals'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'editorconfig/editorconfig-vim'
