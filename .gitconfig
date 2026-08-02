@@ -1,0 +1,23 @@
+[include]
+    path = ~/.gitconfig.local
+
+[core]
+  editor = vim
+  pager = delta
+
+[init]
+  defaultBranch = main
+
+[rebase]
+  autoStash = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  line-numbers = true
+  max-line-length = 0
+
+[merge]
+  conflictStyle = zdiff3

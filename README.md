@@ -2,6 +2,13 @@
 
 ## Setup
 
+### Git
+
+ - Install Git
+ - Install [Delta](https://dandavison.github.io/delta/installation.html)
+ - Symlink `.gitconfig` to `~/.gitconfig`
+ - Add `~/.gitconfig.local` containing anything that doesn't want to be committed (e.g. email)
+
 ### Colours
 
 - Use [Gogh](https://gogh-co.github.io/Gogh) to install the `Base2Tone_Space` theme.
