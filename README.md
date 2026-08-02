@@ -33,6 +33,7 @@
  - Install & use [Powerline Fonts](https://github.com/powerline/fonts) to get the icons in the Spaceship Zsh theme
  - Install [Spaceship](https://denysdovhan.com/spaceship-prompt/#installing)
  - Ensure `spaceship.zsh-theme` is in the custom themes directory in `~/.oh-my-zsh`
+ - Install [Zsh Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
  - Run `source ~/.zshrc`
 
 ### TMUX
